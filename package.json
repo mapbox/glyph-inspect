@@ -4,7 +4,7 @@
   "description": "Inspect glyph PBF metadata",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,8 @@
   },
   "bin": {
     "inspect": "./index.js"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
   }
 }
