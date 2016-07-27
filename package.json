@@ -1,0 +1,19 @@
+{
+  "name": "glyph-inspector",
+  "version": "1.0.0",
+  "description": "Inspect glyph PBF metadata",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pbf": "^2.0.1",
+    "prettyjson": "^1.1.3",
+    "request": "^2.74.0"
+  },
+  "bin": {
+    "inspect": "./index.js"
+  }
+}
