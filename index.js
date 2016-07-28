@@ -4,6 +4,7 @@ var fs = require('fs');
 var prettyjson = require('prettyjson');
 var Pbf = require('pbf');
 var Glyphs = require('./glyphs.js').glyphs;
+var htmlify = require('./htmlify.js');
 
 function getGlyphs(path, cb) {
     fs.readFile(path, (err, data) => {
@@ -21,6 +22,7 @@ if (require.main === module) {
         console.warn('Usage: `inspect ./path/to/glyphs.pbf`');
         console.warn('    options:');
         console.warn('      --raw: output raw JSON string');
+        console.warn('      --html: output HTML to view glyphs');
         process.exit(1);
     }
 
@@ -30,7 +32,11 @@ if (require.main === module) {
         getGlyphs(file, (err, data) => {
             if (err) console.error(err);
             else {
-                if (args.length > 1 && args[1] == '--raw') console.log(JSON.stringify(data));
+                if (args.length > 1) {
+                    if (args[1] == '--raw') console.log(JSON.stringify(data));
+                    else if (args[1] == '--html') console.log(htmlify(data));
+                    else console.warn('Unknown option ' + args[1]);
+                }
                 else console.log(prettyjson.render(quietBuffers(data)));
             }
         });
