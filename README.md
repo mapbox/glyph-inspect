@@ -5,8 +5,7 @@ A utility to inspect glyph PBFs.
 ## Usage
 
 ```
-npm install && npm link
-
+npm install glyph-inspector -g
 // pretty-printed JSON metadata
 inspect ./0-255.pbf
 
